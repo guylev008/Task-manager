@@ -4,9 +4,25 @@ const apiKey =
 
 sgMail.setApiKey(apiKey);
 
-sgMail.send({
-	to: 'guylev008@gmail.com',
-	from: 'guylev008@gmail.com',
-	subject: 'Task App',
-	text: 'This is an email from the task app'
-});
+const sendWelcomeEmail = (email, name) => {
+	sgMail.send({
+		to: email,
+		from: 'guylev008@gmail.com',
+		subject: 'Thanks for joining in!',
+		text: `Welcome to the app, ${name}.`
+	});
+};
+
+const cancelationEmail = (email, name) => {
+	sgMail.send({
+		to: email,
+		from: 'guylev008@gmail.com',
+		subject: 'Hope you will come again',
+		text: `Hi ${name}, hope to see you back again`
+	});
+};
+
+module.exports = {
+	sendWelcomeEmail,
+	cancelationEmail
+};
