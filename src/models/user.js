@@ -34,15 +34,6 @@ const userSchema = new mongoose.Schema(
 				}
 			}
 		},
-		age: {
-			type: Number,
-			default: 0,
-			validate(value) {
-				if (value < 0) {
-					throw new Error('Age must be a positive number');
-				}
-			}
-		},
 		tokens: [
 			{
 				token: {
@@ -50,10 +41,7 @@ const userSchema = new mongoose.Schema(
 					required: true
 				}
 			}
-		],
-		avatar: {
-			type: Buffer
-		}
+		]
 	},
 	{
 		timestamps: true
